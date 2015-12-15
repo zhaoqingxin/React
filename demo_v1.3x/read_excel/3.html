@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<HTML> 
+<HEAD> 
+<TITLE> New Document </TITLE> 
+<SCRIPT LANGUAGE="JavaScript"> 
+<!-- 
+var excelFileName = "E:/ex.xls"; 
+var oWB; 
+function showExcel(targetDIVID){ 
+//objID为表格ID 
+//需要在浏览器安全级别设置中启用ActiveX 
+// Start Excel and get Application object. 
+var oXL=null; 
+try{ 
+oXL = new ActiveXObject("Excel.Application"); 
+}catch(e){ 
+alert(e.message); 
+return ; 
+} 
+if (oXL == null){ 
+alert("创建Excel文件失败，可能是您的计算机上没有正确安装Microsoft Office Excel软件或浏览器的安全级别设置过高！"); 
+return; 
+} 
+try{ 
+// Get a new workbook. 
+oWB = oXL.Workbooks.Open(excelFileName); 
+for (i = 1; i <= oWB.Sheets.Count; i++){ 
+if (oWB.Sheets(i).name.lastIndexOf("月") != -1){ 
+showSheet(i); 
+} 
+} 
+} 
+catch (e){ 
+alert(e.message); 
+} 
+oWB.Close();　　　//不close工作簿的话，后果还是挺严重的。 
+oWB = null; 
+oXL = null; 
+} 
+function showSheet(sheetNO){ 
+var oSheet = oWB.Sheets(sheetNO); 
+document.write("<table border=1>"); 
+for (i = 1; i < oSheet.UsedRange.Rows.Count; i++){ 
+document.write("<tr>"); 
+for (j = 1; j < oSheet.UsedRange.Columns.Count; j++){ 
+value = oSheet.Cells(i, j).Value; 
+if (value == undefined){ 
+value = " "; 
+} 
+document.write(i == 1 ? "<th nowrap=true><b>" : "<td>"); 
+document.write(value); 
+document.write(i == 1 ? "</b></th>" : "</td>"); 
+} 
+document.write("</tr>"); 
+} 
+document.write("</table>"); 
+oSheet = null; 
+} 
+//--> 
+</SCRIPT> 
+</HEAD> 
+<BODY onLoad="showExcel();"> 
+</BODY> 
+</HTML> 

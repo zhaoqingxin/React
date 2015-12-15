@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style></style>
+    <script src="../bower_components/react/react.js"></script>
+    <script src="../bower_components/react/react-dom.js"></script>
+    <script src="../bower_components/babel/browser.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<!-- 这种写法不好，变量要挂在properties上-->
+<script type="text/babel">
+        var Component = React.createClass({
+            getDefaultProps:function(){
+                return {
+                    title:"个人介绍",
+                    name:"wang",
+                    age:"99"
+                }
+            },
+            render:function(){
+                return (
+                    <div>
+                        <h1>{this.props.title}</h1>
+                        <Myname/>
+                        <Myage/>
+                    </div>
+                )
+            }
+        });
+        var Myname = React.createClass({
+            render:function(){
+                var name = 'wang';
+                console.log(this.props);
+                return <p>{name}</p>
+            }
+        });
+        var Myage = React.createClass({
+            render:function(){
+                var age = 99
+                return <p>{age}</p>
+            }
+        });
+        ReactDOM.render(<Component />,document.getElementById('container'));
+    </script>
+</body>
+</html>
