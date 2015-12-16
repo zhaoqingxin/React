@@ -34,11 +34,11 @@ Babel              --解析JSX https://babeljs.io
 *生命周期和钩子函数----在组件实例化，存在期和销毁期，分别给出不同的钩子函数，用来在某个时间点操作组件
 
 实例化
-- getDefaultProps默认属性
-- getInitialState初始化状态
-- componentWillMount组件即将安装
-- render渲染DOM
-- componentDidMount组件安装完成
+getDefaultProps默认属性
+getInitialState初始化状态
+componentWillMount组件即将安装
+render渲染DOM
+componentDidMount组件安装完成
 
 存在期
 - componentWillReceiveProps即将接受新属性
