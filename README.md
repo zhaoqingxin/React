@@ -28,10 +28,10 @@ Babel              --解析JSX https://babeljs.io
 - [jQuery versus React.js thinking](http://blog.zigomir.com/react.js/jquery/2015/01/11/jquery-versus-react-thinking.html), by zigomir
 
 #概要
-JSX-----用XML的语法写JS文件，解析时还是将JSX解析成js语句执行，我们只要会写JSX，不用关心如何解析
-DOM diff算法，狗屁算法，说是快，把DOM更改后变化的部分重新渲染，而不是渲染整个组件（虚拟dom的概念）
-props和state----组件的属性和状态，属性是只读的，状态是可以通过事件和钩子函数更改的
-生命周期和钩子函数----在组件实例化，存在期和销毁期，分别给出不同的钩子函数，用来在某个时间点操作组件
+- JSX-----用XML的语法写JS文件，解析时还是将JSX解析成js语句执行，我们只要会写JSX，不用关心如何解析
+- DOM diff算法，狗屁算法，说是快，把DOM更改后变化的部分重新渲染，而不是渲染整个组件（虚拟dom的概念）
+- props和state----组件的属性和状态，属性是只读的，状态是可以通过事件和钩子函数更改的
+- 生命周期和钩子函数----在组件实例化，存在期和销毁期，分别给出不同的钩子函数，用来在某个时间点操作组件，以下列出了生命周期和钩子函数
 
 实例化
 - getDefaultProps默认属性
@@ -48,5 +48,9 @@ props和state----组件的属性和状态，属性是只读的，状态是可以
 - render重新渲染DOM
 
 销毁
-- componentWillUnmount销毁前，给你个机会把垃圾清理掉
+- componentWillUnmount销毁前，给你个机会把垃圾清理掉（在此钩子函数中无法设置state）
 
+- 事件，在组件中和DOM事件是一样的，用onClick来表示点击事件，调用设定的方法就可以了
+
+#关于组件类
+createClass创建组件类，createClass是一个函数，接收一个{}参数,所有生命周期的钩子函数都以传参的形式传入
