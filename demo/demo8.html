@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<!-- /#app -->
+<script type="text/babel">
+   var Component = React.createClass({
+        getInitialState:function(){
+            return {
+                value:'zhaoqingxin'
+            };
+        },
+        //target有点时间委托的意思，可以用refs来写，但是用target更加方便
+        handleChange:function(e){
+            this.setState({
+                value:e.target.value
+            });
+        },
+        render:function(){
+            return (
+                <div>
+                    说点什么：<input type="text" onInput={this.handleChange}/>
+                    再说点什么：<input type="text" onInput={this.handleChange}/>
+                    <p>{this.state.value}</p>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(<Component/>,document.getElementById('app'));
+</script>
+<script src="../bower_components/react/react.js"></script>
+<script src="../bower_components/react/react-dom.js"></script>
+<script src="../bower_components/babel/browser.js"></script>
+</body>
+</html>

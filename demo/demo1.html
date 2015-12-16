@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/babel">
+    /*ReactDOM.render(
+        <h1>我的一个应用</h1>,
+        document.body
+    );*/
+
+    var Component = React.createClass({
+        render:function(){
+            var str = '我的应用'
+            return <h1>{str}</h1>;
+        }
+    });
+    ReactDOM.render(<Component />,document.getElementById('app'));
+</script>
+<script src="../bower_components/react/react.js"></script>
+<script src="../bower_components/react/react-dom.js"></script>
+<script src="../bower_components/babel/browser.js"></script>
+</body>
+</html>

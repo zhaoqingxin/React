@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<!-- /#app -->
+<script type="text/babel">
+
+   var Component = React.createClass({
+        render:function(){
+            return (
+                <form>
+                    <input type="text" placeholder="name" ref="myInput"/>
+                    <br/>
+                    <input type="password" placeholder="password"/>
+                    <br/>
+                    <button onClick={this.handleClick}>clickme</button>
+                </form>
+            )
+        },
+        handleClick:function(e){
+            e.preventDefault();
+            ReactDOM.findDOMNode(this.refs.myInput).focus();
+        }
+    });
+    ReactDOM.render(<Component/>,document.getElementById('app'));
+</script>
+<script src="../bower_components/react/react.js"></script>
+<script src="../bower_components/react/react-dom.js"></script>
+<script src="../bower_components/babel/browser.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<!-- /#app -->
+<script type="text/babel">
+   var Component = React.createClass({
+        getInitialState:function(){
+            return {
+                value:'zhaoqingxin',
+                opacity:1.0
+            }
+        },
+        //绑定this，是为了解决定时器this指向window
+        componentDidMount:function(){
+            console.log(this);
+            var num = this.state.opacity;
+            /*this.timer = setInterval(function(){
+                num-=0.05;
+                if(num<0.1){
+                    num=1
+                };
+                this.setState({
+                    opacity:num
+                })
+            }.bind(this)*/
+            var _this=this;
+            this.timer = setInterval(function(){
+                num-=0.05;
+                if(num<0.1){
+                    num=1
+                };
+                _this.setState({
+                    opacity:num
+                })
+            }
+            ,100)
+        },
+        render:function(){
+            return <p style={{opacity:this.state.opacity}}>{this.state.value}</p>
+        }
+    });
+    ReactDOM.render(<Component/>,document.getElementById('app'));
+</script>
+<script src="../bower_components/react/react.js"></script>
+<script src="../bower_components/react/react-dom.js"></script>
+<script src="../bower_components/babel/browser.js"></script>
+</body>
+</html>

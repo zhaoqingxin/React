@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<!-- 观察生命周期的钩子函数 -->
+<script type="text/babel">
+    //子组件
+    var Age=React.createClass({
+        getInitialState:function(){
+            console.log('ageState');
+            return {
+                like:'篮球'
+            };
+        },
+        render:function(){
+            console.log('ageRender');
+            return <p>{this.props.age}----{this.state.like}</p>
+        },
+
+        //props通过父级修改或者state自己修改以后，以下方法依次调用
+        //不要在以下钩子函数中修改自身的state，否则会循环调用，造成死循环
+        componentWillReceiveProps:function(nextProps){
+            console.log(nextProps);
+        },
+        componentWillUpdate:function(){
+            console.log('componentWillUpdate');
+        },
+        componentDidUpdate:function(){
+            console.log('componentDidUpdate');
+        },
+
+        //销毁前被调用，此函数无法修改state，下面的setState没有被调用
+        componentWillUnmount:function(){
+            this.setState({
+                like:'足球'
+            });
+            console.log(this.state.like);
+        }
+    });
+
+    //父组件
+    var Component = React.createClass({
+        //组件创建时依次被调用，定义了props和state
+        propType:{
+            name:React.PropTypes.string.isRequired,
+            age:React.PropTypes.number,
+            say:React.PropTypes.func,
+            friend:React.PropTypes.Array
+        },
+        getDefaultProps:function(){
+            console.log('getDefaultProps')
+            return {
+                name:'zhao',
+                say:function(){
+                    console.log(this.props)
+                },
+                friend:['wang','mei']
+            }
+        },
+        getInitialState:function(){
+            console.log('getInitialState')
+            return {
+                style:{
+                    background:'red',
+                    fontSize:'80px'
+                },
+                age:22
+            }
+        },
+        componentWillMount:function(){
+            console.log('componentWillMount');
+        },
+        render:function(){
+            console.log('render');
+            return (
+                <div style={this.state.style}>
+                        <p>姓名：{this.props.name}</p>
+                        <Age age={this.state.age}/>
+                        <p>
+                            {
+                                this.props.friend.map(function(person){
+                                    return <span>朋友：{person},</span>
+                                })
+                            }
+                        </p>
+                        <button onClick={this.handleClick}>大一岁</button>
+                        <button onClick={this.kill}>删除</button>
+                </div>
+            )
+        },
+        componentDidMount:function(){
+            console.log('componentDidMount');
+        },
+
+        //存在期内可以被调用的函数
+        handleClick:function(){
+            console.log('handleClick');
+            this.setState({
+                age:this.state.age+1
+            })
+        },
+        kill:function(){
+            ReactDOM.unmountComponentAtNode(document.getElementById('app') );
+        },
+
+        //销毁前被调用
+        componentWillUnmount:function(){
+            console.log('componentWillUnmount');
+        }
+    });
+    ReactDOM.render(<Component/>,document.getElementById('app'));
+</script>
+<script src="../bower_components/react/react.js"></script>
+<script src="../bower_components/react/react-dom.js"></script>
+<script src="../bower_components/babel/browser.js"></script>
+</body>
+</html>

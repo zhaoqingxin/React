@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<!-- /#app -->
+<script type="text/babel">
+    /*var Component = React.createClass({
+        render:function(){
+            return <h1>我的名字是:{this.props.name}</h1>
+        }
+    })*/
+
+    var Component = React.createClass({
+        render:function(){
+            return (
+                <div>
+                    <h1>我的名字是:{this.props.name}</h1>
+                    {
+                        this.props.children.map(function(child){
+                            return <p>{child}</p>
+                        })
+                    }
+                </div>
+            )
+        }
+    })
+    ReactDOM.render(<Component name='wang'>
+            <span>zhao</span>
+            <span>li</span>
+    </Component>
+    ,document.getElementById('app'));
+</script>
+<script src="../bower_components/react/react.js"></script>
+<script src="../bower_components/react/react-dom.js"></script>
+<script src="../bower_components/babel/browser.js"></script>
+</body>
+</html>

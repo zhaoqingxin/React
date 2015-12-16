@@ -1,19 +1,25 @@
-##React¼¼ÊõÑ§Ï°
+##React
 
-#¼¼Êõµã
+#æŠ€æœ¯ç‚¹
 JUST THE UI        --V in MVC
 
-VIRTUAL DOM        --ĞéÄâDOM
+VIRTUAL DOM        --è™šæ‹ŸDOM
 
-DATA FLOW          --µ¥ÏîÊı¾İÁ÷
+DATA FLOW          --å•é¡¹æ•°æ®æµ
 
-JSX                --JSXÓï·¨
+JSX                --JSXè¯­æ³•ï·¨
 
-Babel              --½âÎöJSXÓï·¨ https://babeljs.io/
+Babel              --è§£æJSXï·¨ https://babeljs.io
 
-#²Î¿¼ÎÄµµ
-git¹Ù·½           https://github.com/facebook/react
+#å‚è€ƒæ–‡æ¡£
 
-¹ÙÍø              http://facebook.github.io/react
-
-ÂÛÌ³              http://bbs.react-china.org
+- [React's official site å®˜æ–¹ç½‘ç«™](http://facebook.github.io/react)
+- [React's official examples å®˜æ–¹](https://github.com/facebook/react)
+- [è®ºå›](http://react-china.org)
+- [React (Virtual) DOM Terminology è™šæ‹Ÿdomeæœ¯è¯­](http://facebook.github.io/react/docs/glossary.html), by Sebastian MarkbÃ¥ge
+- [The React Quick Start Guide å¿«é€Ÿå¯åŠ¨æŒ‡å—](http://www.jackcallister.com/2015/01/05/the-react-quick-start-guide.html), by Jack Callister
+- [Learning React.js: Getting Started and Concepts å¼€å§‹å’Œæ¦‚å¿µ](https://scotch.io/tutorials/learning-react-getting-started-and-concepts), by Ken Wheeler
+- [Getting started with React å¼€å§‹react](http://ryanclark.me/getting-started-with-react/), by Ryan Clark
+- [React JS Tutorial and Guide to the Gotchas æ•™ç¨‹å’Œé™·é˜±](https://zapier.com/engineering/react-js-tutorial-guide-gotchas/), by Justin Deal
+- [React Primer](https://github.com/BinaryMuse/react-primer), by Binary Muse
+- [jQuery versus React.js thinking](http://blog.zigomir.com/react.js/jquery/2015/01/11/jquery-versus-react-thinking.html), by zigomir
