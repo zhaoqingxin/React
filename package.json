@@ -1,0 +1,26 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "React就是写组件",
+  "main": "index.js",
+  "dependencies": {
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhaoqingxin/React.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaoqingxin/React/issues"
+  },
+  "homepage": "https://github.com/zhaoqingxin/React"
+}

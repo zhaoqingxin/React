@@ -36,8 +36,8 @@
             return (<p>组件运行时间：{this.state.count}<br/><span onClick={this.kill}>删除组件</span><button id="btn">点了我了</button></p>)
         },
         kill:function(){
-            console.log(document.getElementById('btn'));
-            ReactDOM.unmountComponentAtNode(document.getElementById('btn') );
+            console.log(document.getElementById('app'));
+            ReactDOM.unmountComponentAtNode(document.getElementById('app') );
         }
     });
     ReactDOM.render(<Component/>,document.getElementById('app'));
