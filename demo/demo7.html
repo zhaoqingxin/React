@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="app"></div>
-<!-- /#app -->
+<!-- 通过ref操作DOM元素的demo -->
 <script type="text/babel">
 
    var Component = React.createClass({
@@ -23,7 +23,10 @@
         },
         handleClick:function(e){
             e.preventDefault();
-            ReactDOM.findDOMNode(this.refs.myInput).focus();
+            var el = ReactDOM.findDOMNode(this.refs.myInput);
+            //var el = this.refs.myInput.getDOMNode();
+            console.log(el)
+            el.focus();
         }
     });
     ReactDOM.render(<Component/>,document.getElementById('app'));

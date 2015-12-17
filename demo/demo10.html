@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<div>123</div>
+<!--mixins和定时器demo-->
+<script type="text/babel">
+    var interval = function(){
+        return {
+            componentDidMount:function(){
+                this.interval = setInterval(this.tick,1000)
+            },
+            componentWillUnmount:function(){
+                clearInterval(this.interval);
+            },
+        }
+    }
+    var Component = React.createClass({
+        mixins:[interval()],
+        getInitialState:function(){
+            return {
+                count:0
+            }
+        },
+        tick:function(){
+            this.setState({
+                count:this.state.count+1
+            });
+            console.log(this.state.count);
+        },
+        render:function(){
+            return (<p>组件运行时间：{this.state.count}<br/><span onClick={this.kill}>删除组件</span><button id="btn">点了我了</button></p>)
+        },
+        kill:function(){
+            console.log(document.getElementById('btn'));
+            ReactDOM.unmountComponentAtNode(document.getElementById('btn') );
+        }
+    });
+    ReactDOM.render(<Component/>,document.getElementById('app'));
+</script>
+<script src="../bower_components/react/react.js"></script>
+<script src="../bower_components/react/react-dom.js"></script>
+<script src="../bower_components/babel/browser.js"></script>
+</body>
+</html>
